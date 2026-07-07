@@ -16,6 +16,7 @@ ENV USE_POOL="true"
 
 COPY . .
 
+RUN apk add --no-cache python3 make g++ libc6-compat
 RUN yarn install
 RUN yarn workspace @calcom/api-v2 run generate-schemas
 RUN yarn workspace @calcom/api-v2 run build:docker
